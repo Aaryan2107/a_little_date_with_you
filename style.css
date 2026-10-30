@@ -100,11 +100,13 @@ body[data-theme="sunset"] {
 
 html, body {
   min-height: 100%;
+  min-height: 100dvh;
   font-family: var(--font-family);
   background-color: var(--bg-page);
   color: var(--text-main);
   overflow-x: hidden;
   line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -112,9 +114,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 12px 32px;
+  padding: 14px 10px 30px;
+  padding-top: max(12px, env(safe-area-inset-top));
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  padding-left: max(10px, env(safe-area-inset-left));
+  padding-right: max(10px, env(safe-area-inset-right));
   background: radial-gradient(circle at 50% 20%, #ffffff 0%, var(--bg-page) 100%);
   position: relative;
+}
+
+button, input, select, textarea, .vibe-card, .chip-btn, .radio-card, .love-note-trigger {
+  touch-action: manipulation;
 }
 
 /* Ambient Floating Background Elements */
@@ -626,17 +636,26 @@ body {
 .custom-input,
 .custom-select {
   width: 100%;
-  padding: 14px 16px;
+  padding: 13px 16px;
   background: #ffffff;
   border: 1.5px solid var(--primary-border);
   border-radius: 14px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 16px; /* 16px prevents iOS Safari auto-zoom */
   color: var(--text-main);
   outline: none;
+  min-height: 48px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   appearance: none;
   -webkit-appearance: none;
+}
+
+.custom-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236d4c94' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
 }
 
 .input-with-icon input:focus,
@@ -648,8 +667,8 @@ body {
 }
 
 .quick-date-chips {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   margin-top: 12px;
 }
@@ -658,12 +677,17 @@ body {
   background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  padding: 6px 12px;
-  font-size: 0.8rem;
+  padding: 10px 8px;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .chip-btn:hover, .chip-btn.selected {
@@ -891,7 +915,7 @@ body {
   border: 1.5px solid var(--primary-border);
   border-radius: 14px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 16px; /* 16px prevents iOS Safari auto-zoom */
   color: var(--text-main);
   resize: vertical;
   min-height: 72px;
@@ -1109,18 +1133,150 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive tweaks */
-@media (max-width: 420px) {
+/* Responsive Mobile Tweaks */
+@media (max-width: 480px) {
   body {
-    padding: 8px 6px 20px;
+    padding: 8px 8px 24px;
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
   }
+
+  .top-nav {
+    top: 6px;
+    padding: 8px 14px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+  }
+
+  .brand-pill {
+    font-size: 0.74rem;
+  }
+
   .app-container {
-    border-radius: 20px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px -6px rgba(91, 57, 128, 0.12);
   }
+
   .screen {
-    padding: 24px 16px;
+    padding: 22px 18px;
   }
+
   .screen-title {
     font-size: 1.55rem;
+    line-height: 1.22;
+    margin-bottom: 8px;
+  }
+
+  .screen-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .photo-frame {
+    width: 155px;
+    height: 155px;
+    border-radius: 24px;
+  }
+
+  .doodle-container {
+    width: 160px;
+    height: 130px;
+    margin-bottom: 10px;
+  }
+
+  .celebrate-doodle-box {
+    width: 150px;
+    height: 130px;
+  }
+
+  .question-playground {
+    min-height: 185px;
+  }
+
+  .evasion-zone {
+    min-height: 120px;
+  }
+
+  .btn-primary-3d {
+    padding: 13px 20px;
+    font-size: 0.98rem;
+    max-width: 100%;
+  }
+
+  .ticket-summary {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+
+  .ticket-row-val {
+    font-size: 1rem;
+  }
+
+  .love-note-trigger {
+    padding: 11px 14px;
+    font-size: 0.88rem;
+  }
+
+  .love-note-text {
+    font-size: 1.25rem;
+    line-height: 1.45;
+  }
+
+  .radio-card {
+    padding: 11px 12px;
+    font-size: 0.84rem;
+  }
+
+  .modal-dialog {
+    padding: 24px 18px;
+    border-radius: 22px;
+    max-width: 92%;
+  }
+
+  .modal-actions .btn-primary-3d {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .screen {
+    padding: 18px 12px;
+  }
+
+  .screen-title {
+    font-size: 1.38rem;
+  }
+
+  .screen-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .photo-frame {
+    width: 135px;
+    height: 135px;
+  }
+
+  .doodle-container {
+    width: 140px;
+    height: 115px;
+  }
+
+  .vibe-card {
+    padding: 12px 8px;
+  }
+
+  .vibe-name {
+    font-size: 0.82rem;
+  }
+
+  .vibe-icon {
+    font-size: 1.6rem;
+  }
+
+  .chip-btn {
+    font-size: 0.78rem;
+    padding: 8px 4px;
   }
 }

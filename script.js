@@ -267,11 +267,16 @@
     }
   ];
 
+  let lastEvadeTime = 0;
   function runAway(e) {
     if (e) {
-      e.preventDefault();
+      if (e.cancelable) e.preventDefault();
       e.stopPropagation();
     }
+    const now = Date.now();
+    if (now - lastEvadeTime < 110) return;
+    lastEvadeTime = now;
+
     state.noEvasionCount++;
 
     const attemptIndex = (state.noEvasionCount - 1) % attempts.length;
@@ -294,26 +299,31 @@
     // 3. Update button text
     btnNo.textContent = currentAttempt.btnText;
 
-    // 4. Position the "No" button far away from the "Yes" button in the evasion zone
+    // 4. Position the "No" button safely within the evasion zone (mobile & desktop safe)
     const zone = evasionZone || playground;
     const zoneRect = zone.getBoundingClientRect();
     const btnRect = btnNo.getBoundingClientRect();
 
-    let targetX = 0;
-    const padding = 12;
+    const padding = 10;
+    const btnW = btnRect.width || 80;
+    const btnH = btnRect.height || 42;
+    const maxSafeX = Math.max(padding, zoneRect.width - btnW - padding);
 
+    let targetX = padding;
     if (currentAttempt.align === 'left') {
       const minX = padding;
-      const maxX = Math.max(padding + 10, zoneRect.width * 0.28);
-      targetX = Math.floor(minX + Math.random() * (maxX - minX));
+      const maxX = Math.max(minX, Math.min(maxSafeX, zoneRect.width * 0.28));
+      targetX = Math.floor(minX + Math.random() * (maxX - minX + 1));
     } else {
-      const maxX = Math.max(padding + 20, zoneRect.width - btnRect.width - padding);
-      const minX = Math.max(padding, zoneRect.width * 0.58);
-      targetX = Math.floor(minX + Math.random() * (maxX - minX));
+      const minX = Math.min(maxSafeX, Math.max(padding, zoneRect.width * 0.52));
+      const maxX = maxSafeX;
+      targetX = Math.floor(minX + Math.random() * Math.max(1, maxX - minX + 1));
     }
+    // Hard clamp to ensure button is never cut off or clipped
+    targetX = Math.max(padding, Math.min(targetX, maxSafeX));
 
-    const maxY = Math.max(20, zoneRect.height - btnRect.height - 10);
-    const targetY = Math.min(maxY, Math.max(8, currentAttempt.topPx + Math.floor((Math.random() - 0.5) * 14)));
+    const maxSafeY = Math.max(10, zoneRect.height - btnH - 6);
+    const targetY = Math.min(maxSafeY, Math.max(6, currentAttempt.topPx + Math.floor((Math.random() - 0.5) * 12)));
 
     btnNo.style.position = 'absolute';
     btnNo.style.left = `${targetX}px`;
@@ -321,6 +331,11 @@
     btnNo.style.right = 'auto';
     btnNo.style.bottom = 'auto';
     btnNo.style.transform = `rotate(${currentAttempt.rot}deg)`;
+
+    // Tactile mobile haptic feedback if supported
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      try { navigator.vibrate(35); } catch (_) {}
+    }
 
     // 5. Steadily grow the "Yes" button slightly
     state.yesScale = Math.min(1.36, state.yesScale + 0.045);
