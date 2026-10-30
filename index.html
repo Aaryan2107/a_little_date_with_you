@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A little date with you ♡ | Interactive Invitation</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="lavender">
+
+  <!-- Ambient Floating Background Sparkles -->
+  <div class="ambient-decorations" aria-hidden="true">
+    <svg class="ambient-heart" style="top: 10%; left: 8%; width: 28px;" viewBox="0 0 24 24" fill="#9d74c9"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="ambient-heart" style="top: 75%; left: 12%; width: 22px; animation-delay: -3s;" viewBox="0 0 24 24" fill="#e74c67"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="ambient-sparkle" style="top: 25%; right: 10%; width: 24px; animation-delay: -5s;" viewBox="0 0 24 24" fill="#b388ff"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/></svg>
+    <svg class="ambient-heart" style="top: 80%; right: 8%; width: 30px; animation-delay: -7s;" viewBox="0 0 24 24" fill="#f48fb1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 99; width: 100vw; height: 100vh;"></canvas>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="brand-pill">
+      A LITTLE DATE WITH YOU <span class="heart-icon">♡</span>
+    </div>
+  </header>
+
+  <!-- Main Mobile-Friendly Container Frame -->
+  <main class="app-container">
+
+    <!-- ====================================================================
+         SCREEN 1: COVER INVITATION
+         ==================================================================== -->
+    <section id="screen-1" class="screen active">
+      <p class="top-eyebrow">A SPECIAL INVITATION FOR MY FAVORITE GIRL ♡</p>
+
+      <div class="photo-frame-wrapper">
+        <!-- Floating sparkle icons -->
+        <svg class="sparkle-icon sparkle-left" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e74c67" stroke-width="2.2" stroke-linecap="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <svg class="sparkle-icon sparkle-right" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b388ff" stroke-width="2.2" stroke-linecap="round"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/></svg>
+
+        <div class="photo-frame">
+          <img id="cover-sticker-img" src="assets/stickers/flork_1_flowers.png" alt="Cute flowers sticker for Madhu">
+        </div>
+      </div>
+
+      <h1 class="screen-title">Hey <span class="recipient-name">Mau</span>. I have a question.</h1>
+      <p class="screen-subtitle">Let's plan a little date just for the two of us.</p>
+
+      <button id="btn-open-invite" class="btn-primary-3d">
+        Open your invitation ♡
+      </button>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 2: THE QUESTION (WILL YOU GO ON A DATE WITH ME?)
+         ==================================================================== -->
+    <section id="screen-2" class="screen">
+      <div class="status-badge">THE “NO” BUTTON IS A LITTLE SHY</div>
+
+      <div class="doodle-container">
+        <img id="doodle-img" src="assets/stickers/flork_0_wait.png" alt="Shy cute doodle" class="doodle-img">
+      </div>
+
+      <h2 class="screen-title">Will you go on a date with me?</h2>
+      <p class="screen-subtitle">Just you and me. What do you say?</p>
+
+      <div id="teasing-caption" class="teasing-caption">Hey, don't even try clicking No! 😉</div>
+
+      <div class="question-playground" id="playground">
+        <button id="btn-yes" class="btn-primary-3d">
+          Yes, please! ♡
+        </button>
+        
+        <div class="evasion-zone" id="evasion-zone">
+          <button id="btn-no" style="right: 15px; top: 15px;">
+            Nope
+          </button>
+        </div>
+      </div>
+
+      <button id="link-not-this-time" class="link-understated">
+        Not this time
+      </button>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 3: THE ACCEPTANCE ("YOU SAID YES!")
+         ==================================================================== -->
+    <section id="screen-3" class="screen">
+      <p class="top-eyebrow">BUTTERFLIES: OFFICIALLY CONFIRMED</p>
+
+      <div class="celebrate-doodle-box">
+        <img src="assets/doodle_happy.svg" alt="Happy blushing doodle" class="doodle-img">
+      </div>
+
+      <h2 class="screen-title">You said yes!</h2>
+      <p class="screen-subtitle">Okay, I'm smiling way too much.<br>Let's make a little memory.</p>
+
+      <button id="btn-goto-step1" class="btn-primary-3d">
+        Let's pick a day →
+      </button>
+
+      <div class="divider-moment">Made for a little moment</div>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 4: STEP 1 (WHEN ARE YOU FREE?)
+         ==================================================================== -->
+    <section id="screen-4" class="screen">
+      <div class="progress-pills">
+        <div class="step-pill active"></div>
+        <div class="step-pill"></div>
+        <div class="step-pill"></div>
+      </div>
+
+      <div class="step-icon-badge">♡</div>
+      <p class="top-eyebrow">FIRST, THE WHEN</p>
+
+      <h2 class="screen-title">When are you free?</h2>
+      <p class="screen-subtitle">Pick a day to look forward to. I'll bring the butterflies.</p>
+
+      <div class="form-card">
+        <label for="date-picker-input" class="form-label">Our date</label>
+        <div class="input-with-icon">
+          <input type="date" id="date-picker-input" required>
+        </div>
+        <div class="quick-date-chips">
+          <button type="button" class="chip-btn" data-days="1">Tomorrow</button>
+          <button type="button" class="chip-btn" data-days="friday">This Friday</button>
+          <button type="button" class="chip-btn" data-days="saturday">This Saturday</button>
+          <button type="button" class="chip-btn" data-days="next-weekend">Next Weekend</button>
+        </div>
+      </div>
+
+      <button id="btn-goto-step2" class="btn-primary-3d">
+        Pick our plan →
+      </button>
+
+      <button id="btn-back-step1" class="link-understated">
+        Back
+      </button>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 5: STEP 2 (WHAT'S OUR VIBE?)
+         ==================================================================== -->
+    <section id="screen-5" class="screen">
+      <div class="progress-pills">
+        <div class="step-pill done"></div>
+        <div class="step-pill active"></div>
+        <div class="step-pill"></div>
+      </div>
+
+      <p class="top-eyebrow">NOW, THE LITTLE ADVENTURE</p>
+
+      <h2 class="screen-title">What's our vibe?</h2>
+      <p class="screen-subtitle">The best part is the company.</p>
+
+      <div class="vibes-grid" id="vibes-grid">
+        <div class="vibe-card selected" data-vibe="Café" data-icon="☕">
+          <div class="vibe-icon">☕</div>
+          <div class="vibe-name">Café</div>
+        </div>
+        <div class="vibe-card" data-vibe="Movie" data-icon="🎬">
+          <div class="vibe-icon">🎬</div>
+          <div class="vibe-name">Movie</div>
+        </div>
+        <div class="vibe-card" data-vibe="Gaming" data-icon="🎮">
+          <div class="vibe-icon">🎮</div>
+          <div class="vibe-name">Gaming</div>
+        </div>
+        <div class="vibe-card" data-vibe="To be decided" data-icon="✨">
+          <div class="vibe-icon">✨</div>
+          <div class="vibe-name">To be decided</div>
+        </div>
+      </div>
+
+      <p class="footnote-text" style="margin-bottom: 20px;">Choose our little plan.</p>
+
+      <button id="btn-goto-step3" class="btn-primary-3d">
+        Make it a date ♡
+      </button>
+
+      <button id="btn-back-step2" class="link-understated">
+        Back
+      </button>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 6: STEP 3 (DATE SUMMARY & CONFIRMATION RSVP)
+         ==================================================================== -->
+    <section id="screen-6" class="screen">
+      <div class="progress-pills">
+        <div class="step-pill done"></div>
+        <div class="step-pill done"></div>
+        <div class="step-pill active"></div>
+      </div>
+
+      <!-- Save-The-Date Ticket -->
+      <div class="ticket-summary">
+        <div class="ticket-header-couple">
+          <span class="recipient-name">Mau</span> & <span class="sender-name">Badak</span>
+        </div>
+
+        <div class="ticket-row">
+          <div class="ticket-row-label">SAVE THE DAY</div>
+          <div class="ticket-row-val" id="summary-date-display">Thursday, September 17, 2026</div>
+        </div>
+
+        <div class="ticket-row">
+          <div class="ticket-row-label">OUR PLAN</div>
+          <div class="ticket-row-val" id="summary-vibe-display">Café</div>
+        </div>
+
+        <div class="ticket-row">
+          <div class="ticket-row-label">TIME</div>
+          <div class="ticket-row-val" id="summary-time-display">19:30</div>
+        </div>
+      </div>
+
+      <!-- Collapsible Love Note Accordion -->
+      <div class="love-note-accordion">
+        <button id="btn-toggle-love-note" class="love-note-trigger" type="button">
+          <span>▶ Open my little love note ♡</span>
+          <span class="arrow-icon">▼</span>
+        </button>
+        <div id="love-note-body" class="love-note-content">
+          <p class="love-note-text" id="love-note-p">
+            Every single day with you is special, but I really want to take you out on a proper date. Whether we're going to a café, watching a movie together, or just simply talking to each other, spending time with you is honestly my favorite part of life. I really can't wait to see you, my love. ♡
+          </p>
+        </div>
+      </div>
+
+      <!-- Complete Our Little Plan Form -->
+      <h3 class="plan-section-title">Complete our date plan</h3>
+
+      <div style="width: 100%; text-align: left; margin-bottom: 16px;">
+        <label for="time-picker-input" class="form-label">Time</label>
+        <input type="time" id="time-picker-input" class="custom-input" value="19:30">
+      </div>
+
+      <div class="radio-options-group">
+        <div class="form-label">Does this plan work?</div>
+        <label class="radio-card">
+          <input type="radio" name="plan-confirm" value="confirm" checked>
+          <span>Yes, confirm this plan</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="plan-confirm" value="modify">
+          <span>Yes, but I'm suggesting different details</span>
+        </label>
+      </div>
+
+      <div style="width: 100%; text-align: left;">
+        <label for="user-custom-msg" class="form-label">A little message back (optional)</label>
+        <textarea id="user-custom-msg" class="custom-textarea" placeholder="Can't wait..."></textarea>
+      </div>
+
+      <!-- Live Generated RSVP Message Box -->
+      <div class="live-rsvp-preview" id="live-rsvp-box">
+        <!-- Dynamically injected via script.js -->
+      </div>
+
+      <!-- Reply Method Selection -->
+      <div style="width: 100%; text-align: left; margin-bottom: 16px;">
+        <label for="reply-method-select" class="form-label">Reply using</label>
+        <select id="reply-method-select" class="custom-select">
+          <option value="whatsapp" selected>WhatsApp</option>
+          <option value="instagram">Instagram</option>
+        </select>
+      </div>
+
+      <!-- Big Action Send Button -->
+      <button id="btn-send-rsvp" class="btn-primary-3d btn-whatsapp">
+        Reply via WhatsApp
+      </button>
+
+      <p class="footnote-text" id="reply-method-hint" style="max-width: 320px;">
+        Choose your reply method. Review and send your answer in that app.
+      </p>
+
+      <button id="btn-back-step3" class="link-understated">
+        Back
+      </button>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       MODAL 1: "NOT THIS TIME" SWEET PERSUASION
+       ==================================================================== -->
+  <div id="modal-pleading" class="modal-overlay">
+    <div class="modal-dialog">
+      <div style="width: 140px; height: 130px; margin: 0 auto 14px;">
+        <img src="assets/doodle_pleading.svg" alt="Pleading cute doodle" class="doodle-img">
+      </div>
+      <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;">Wait... really? 🥺</h3>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5;">
+        My tiny heart is holding back tears! Are you super sure you can't be bribed with coffee, snacks, or cute jokes?
+      </p>
+      <div class="modal-actions">
+        <button id="btn-reconsider-yes" class="btn-primary-3d">
+          Okay fine, let me think again! ♡
+        </button>
+        <button id="btn-reconsider-close" class="link-understated">
+          I'm still thinking...
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Bar -->
+  <div id="toast" class="toast-msg">Link copied to clipboard!</div>
+
+  <!-- JavaScript Application Logic -->
+  <script src="script.js"></script>
+</body>
+</html>

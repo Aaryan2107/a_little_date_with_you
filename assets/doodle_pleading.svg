@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" width="100%" height="100%">
+  <defs>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#555" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft-shadow)">
+    <!-- White bean body sitting/drooping -->
+    <path d="M75 195 
+             C70 130, 75 80, 105 60 
+             C132 42, 165 48, 175 75 
+             C185 105, 180 150, 185 195 
+             Z" 
+          fill="#FFFFFF" 
+          stroke="#1E1926" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Head curvature line -->
+    <path d="M72 95 
+             C65 75, 90 55, 125 55 
+             C162 55, 178 76, 170 95 
+             C158 110, 115 112, 80 105" 
+          fill="#FFFFFF" 
+          stroke="#1E1926" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Blushing cheeks -->
+    <ellipse cx="86" cy="98" rx="8" ry="5" fill="#FFB4C5" opacity="0.8" />
+    <ellipse cx="152" cy="98" rx="8" ry="5" fill="#FFB4C5" opacity="0.8" />
+
+    <!-- Big cute sparkling puppy eyes -->
+    <!-- Left eye -->
+    <ellipse cx="102" cy="88" rx="8" ry="9" fill="#1E1926" />
+    <circle cx="100" cy="85" r="3.2" fill="#FFFFFF" />
+    <circle cx="105" cy="92" r="1.8" fill="#FFFFFF" />
+
+    <!-- Right eye -->
+    <ellipse cx="140" cy="88" rx="8" ry="9" fill="#1E1926" />
+    <circle cx="138" cy="85" r="3.2" fill="#FFFFFF" />
+    <circle cx="143" cy="92" r="1.8" fill="#FFFFFF" />
+
+    <!-- Pleading tiny mouth -->
+    <path d="M116 104 Q121 100 126 104" 
+          fill="none" 
+          stroke="#1E1926" 
+          stroke-width="4.5" 
+          stroke-linecap="round" />
+
+    <!-- Holding a tiny rose or sign -->
+    <!-- Stem -->
+    <path d="M121 135 Q115 155 110 175" fill="none" stroke="#4CAF50" stroke-width="4" stroke-linecap="round"/>
+    <path d="M110 160 Q100 155 95 162" fill="none" stroke="#4CAF50" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Rose flower -->
+    <circle cx="123" cy="132" r="10" fill="#E91E63" stroke="#C2185B" stroke-width="2"/>
+    <path d="M118 128 C120 124, 126 124, 128 128 C130 133, 124 136, 121 133 Z" fill="#FF4081"/>
+
+    <!-- Arms holding flower -->
+    <path d="M85 160 Q105 145 115 145" fill="none" stroke="#1E1926" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M170 160 Q145 145 125 145" fill="none" stroke="#1E1926" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+</svg>

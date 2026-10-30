@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" width="100%" height="100%">
+  <defs>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#805b9a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Floating Hearts (Left) -->
+  <g class="floating-heart" style="animation: floatSlow 3s ease-in-out infinite;">
+    <!-- Top heart -->
+    <path d="M52 38 C42 22, 22 28, 22 44 C22 58, 38 70, 52 82 C66 70, 82 58, 82 44 C82 28, 62 22, 52 38 Z" 
+          fill="#E74C67" transform="translate(-10, -5) scale(0.48) rotate(-15 52 38)" />
+    <!-- Lower heart -->
+    <path d="M52 38 C42 22, 22 28, 22 44 C22 58, 38 70, 52 82 C66 70, 82 58, 82 44 C82 28, 62 22, 52 38 Z" 
+          fill="#F06292" transform="translate(-25, 40) scale(0.38) rotate(10 52 38)" />
+    <!-- Smallest heart -->
+    <path d="M52 38 C42 22, 22 28, 22 44 C22 58, 38 70, 52 82 C66 70, 82 58, 82 44 C82 28, 62 22, 52 38 Z" 
+          fill="#FF80AB" transform="translate(-32, 90) scale(0.28) rotate(-8 52 38)" />
+  </g>
+
+  <!-- Sparkle (Right) -->
+  <path d="M195 90 Q195 98 203 98 Q195 98 195 106 Q195 98 187 98 Q195 98 195 90 Z" 
+        fill="#B388FF" opacity="0.8" />
+
+  <!-- Character Body -->
+  <g filter="url(#soft-shadow)">
+    <!-- White bean body -->
+    <path d="M85 190 
+             C82 120, 78 72, 105 50 
+             C128 32, 168 35, 178 62 
+             C188 88, 185 135, 190 190 
+             Z" 
+          fill="#FFFFFF" 
+          stroke="#1E1926" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Head curvature / chin defining line -->
+    <path d="M78 82 
+             C72 70, 95 48, 128 48 
+             C165 48, 180 68, 172 82 
+             C162 95, 120 98, 88 92" 
+          fill="#FFFFFF" 
+          stroke="#1E1926" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Rosy Cheek Blushes -->
+    <ellipse cx="158" cy="74" rx="9" ry="6" fill="#FFA4B6" opacity="0.85" />
+    <ellipse cx="88" cy="80" rx="7" ry="5" fill="#FFA4B6" opacity="0.65" />
+
+    <!-- Cute Eyes -->
+    <circle cx="102" cy="72" r="4.2" fill="#1E1926" />
+    <circle cx="145" cy="69" r="4.2" fill="#1E1926" />
+
+    <!-- Shy Smile -->
+    <path d="M112 80 Q130 88 152 75" 
+          fill="none" 
+          stroke="#1E1926" 
+          stroke-width="4.5" 
+          stroke-linecap="round" />
+
+    <!-- Left Arm & Little Hand raised to cheek -->
+    <path d="M96 155 L110 115 L104 100" 
+          fill="none" 
+          stroke="#1E1926" 
+          stroke-width="4.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    <!-- Cute fingers left hand -->
+    <path d="M98 97 L102 91 M103 96 L107 90 M108 97 L112 91 M113 99 L116 94" 
+          stroke="#1E1926" 
+          stroke-width="4" 
+          stroke-linecap="round"/>
+
+    <!-- Right Arm & Hand -->
+    <path d="M165 155 L132 118 L138 100" 
+          fill="none" 
+          stroke="#1E1926" 
+          stroke-width="4.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    <!-- Cute fingers right hand -->
+    <path d="M132 99 L128 92 M137 96 L134 90 M142 97 L140 91 M147 99 L146 93" 
+          stroke="#1E1926" 
+          stroke-width="4" 
+          stroke-linecap="round"/>
+  </g>
+</svg>
